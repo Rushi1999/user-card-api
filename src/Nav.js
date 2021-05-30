@@ -1,7 +1,9 @@
 import React from 'react';
+import MainArea from './MainArea';
 import './index.css';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink , Button} from 'reactstrap';
 import axios from 'axios';
+import Loader from "react-loader-spinner";
 export default class TopNav extends React.Component {
   
   constructor(props) {
@@ -10,7 +12,8 @@ export default class TopNav extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      user:[]
     };
   }
   
@@ -19,16 +22,22 @@ export default class TopNav extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
-  
-   getUser(){
-    // let loader = `<div class="boxLoading"></div>`;
-    // document.getElementById('root').innerHTML = loader;
+
+   getUser=()=>{
+
+    let loader = `<Loader type="Circles" color="#00BFFF" height={80} width={80}/>`;
+    document.getElementById('loader').innerHTML = loader;
+
     axios.get(`https://reqres.in/api/users?page=1`)
       .then(res => {
+
+        //  loader = ``;
+        // document.getElementById('loader').innerHTML = loader;
+
         const persons = res.data.data;
-        this.props.onPeopleChange(persons);
-        console.log("string",persons);
-        // this.setState({ persons });
+         console.log(res);
+          this.setState({ user:res.data.data });
+          return res.data.data;
       }
       )
   }
@@ -41,15 +50,13 @@ export default class TopNav extends React.Component {
           <NavbarBrand href="/">Advertyzement</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <Button class="user" onClick={this.getUser} >Get user</Button>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#">user</NavLink>
+              <NavItem class="user">
+                <Button  onClick={this.getUser} >Get users</Button>
               </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
+        <MainArea people={this.state.user} />
       </div>
     );
   }

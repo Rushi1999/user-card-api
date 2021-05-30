@@ -9,16 +9,11 @@ class MainArea extends Component {
       people: [  ]
     }
   }
-
-  removePerson(id) {
-    this.setState({ people: this.state.people.filter(person => person.id !== id)});
-  }
-
   render () {
-    let peopleCards = this.state.people.map(person => {
+    let peopleCards = this.props.people.map(person => {
       return (
         <Col sm="2">
-          <PeopleCard key={person.id} removePerson={this.removePerson.bind(this)} person={person} />
+          <PeopleCard key={person.id}  person={person} />
         </Col>
       )
     })
@@ -31,5 +26,4 @@ class MainArea extends Component {
     )
   }
 }
-
 export default MainArea;

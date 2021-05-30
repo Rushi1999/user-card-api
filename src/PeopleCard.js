@@ -8,30 +8,18 @@ class PeopleCard extends Component {
     super(props);
   }
   render () {
-    let { id, firstname,lasttname, email, avtar } = this.props.person;
+    let { id, first_name,last_name, email, avatar } = this.props.person;
     return (
    <div>
         <Card>
-          {/* <CardImg top width="100%" src="https://source.unsplash.com/user/_vickyreyes/600x400" alt="Card image cap" /> */}
-          <CardImg top width="100%"  alt="Card image cap" >{avtar}</CardImg>
+        <CardImg top width="100%"  src={avatar} alt="Card image cap" ></CardImg>
           <CardBlock>
-            {/* <CardTitle>{name}</CardTitle> */}
-            <CardTitle>{firstname}</CardTitle>
-            <CardTitle>{lasttname}</CardTitle>
+            <CardTitle>{first_name}</CardTitle>
+            <CardTitle>{last_name}</CardTitle>
             <CardSubtitle>{email}</CardSubtitle>
-            {/* <CardText>{description}</CardText> */}
-            <Button color="danger" onClick={() => this.props.removePerson(id)}>Delete</Button>
           </CardBlock>
         </Card>
     </div>
-  // <div >
-  //     <Grid container spacing={3}></Grid>
-  //     <Grid item xs={3}>
-  //         <Paper >xs=3</Paper>
-  //       </Grid>
-    
-  //   </div>
-     
     )
   }
 }
