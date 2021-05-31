@@ -1,4 +1,5 @@
 // import react, { Fragment } from 'react'
+// import React, { Component }  from 'react';
 // import animation from './spinner.gif';
 
 //  const loader= ()=>{
