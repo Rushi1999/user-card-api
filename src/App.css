@@ -1,7 +1,4 @@
-.boxLoading{
-    width: 100px;
-    height: 100px;
-   background-color: black;
-   margin-left: 50%;
-    
+
+div#loader{
+    text-align: center;
 }

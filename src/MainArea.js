@@ -12,7 +12,7 @@ class MainArea extends Component {
   render () {
     let peopleCards = this.props.people.map(person => {
       return (
-        <Col sm="2">
+        <Col sm="card">
           <PeopleCard key={person.id}  person={person} />
         </Col>
       )

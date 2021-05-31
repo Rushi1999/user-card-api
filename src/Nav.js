@@ -3,7 +3,7 @@ import MainArea from './MainArea';
 import './index.css';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink , Button} from 'reactstrap';
 import axios from 'axios';
-import Loader from "react-loader-spinner";
+import spinner from './loader'
 export default class TopNav extends React.Component {
   
   constructor(props) {
@@ -25,7 +25,7 @@ export default class TopNav extends React.Component {
 
    getUser=()=>{
 
-    let loader = `<Loader type="Circles" color="#00BFFF" height={80} width={80}/>`;
+    let loader = ' <img src={spinner} />'
     document.getElementById('loader').innerHTML = loader;
 
     axios.get(`https://reqres.in/api/users?page=1`)

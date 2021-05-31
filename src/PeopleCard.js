@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
-import { Card, CardImg, CardText, CardBlock,
-  CardTitle, CardSubtitle, Button} from 'reactstrap';
+import { Card, CardImg, CardText, CardBlock, CardTitle, CardSubtitle, Button} from 'reactstrap';
  
 class PeopleCard extends Component {
   constructor(props) {
